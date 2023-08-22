@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content,form{max-width: 500px; margin: 50px auto;}
+        span{color: red;}
+    </style>
+</head>
+<body>
+    <div id="content">
+        <!-- <ul><li></li><li></li><li></li></ul> -->
+    </div>
+    <form action="#">
+        <input type="text" id="irum">
+        <button onclick="add()">추가</button>
+        <button onclick="remove()">삭제</button>
+        <button onclick="modify()">수정</button>
+
+    </form>
+    <script>
+        let content =document.querySelector("#content")
+        let irum = document.querySelector("#irum")
+        let students=['김은영',100,'장나라',80,'홍길동',90]
+        let newstudents= students.filter(value=>typeof(value)==="string"
+        )
+        
+       
+        
+        init()
+        function init(){
+            let list = "<ul>"
+            newstudents.forEach(value=>list+=`<li><span>${value}</span>님 환영합니다</li>`)
+            list+="</ul>"
+            content.innerHTML=list;
+        }
+        
+        function add(){
+            if(irum.value){
+                newstudents.push(irum.value); 
+                irum.value=""
+                init();
+            }
+        }
+
+        function remove(){
+            if(irum.value){
+                let findindex = newstudents.indexOf(irum.value)
+                if(findindex!==-1){
+                    newstudents.splice(findindex,1)
+                }
+                else{
+                    alert("존재하지 않는 회원입니다.")
+                }
+                
+                irum.value=""
+                init();
+            }
+        }
+        function modify(){
+            if(irum.value){
+                let modifyindex = newstudents.indexOf(irum.value)
+                if(modifyindex!==-1){
+                    let newirum=prompt("수정할 이름을 입력하세요")
+
+                    newstudents.splice(modifyindex,1,newirum)
+                    irum.value=""
+                    init();
+                }
+                else{
+                    alert("존재하지 않는 회원입니다.")
+                }
+            }
+        }
+        // for(let i in newstudents){
+        //     list+=`<li><span>${newstudents[i]}</span>님 환영합니다</li>`
+        // }
+         // for(let i=0; i<newstudents.length;i++){
+        //     list+=`<li>${newstudents[i]}님 환영합니다</li>`
+        // }
+        // newstudents.map(value=>list+=`<li><span>${value}</span>님 환영합니다</li>`)
+        // document.write(newstudents.toString()+"<br>")
+        
+    </script>
+    <!-- forEach(),filter(),innerHtml,함수 -->
+</body>
+</html>

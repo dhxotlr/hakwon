@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {color: herate;}
+        h3, li{color: brown;}
+       div > div > strong {background-color: yellow;}
+       ul strong {background-color: blue;}
+       .warning {color: aquamarine;}
+       body.main {background-color: aliceblue;}
+       #list{background: mistyrose;}
+       #list>li>span{color: blueviolet;}
+       h3::first-letter{color: red;}
+       p::first-line{color:red}
+       #list li:hover span{color: yellowgreen;}
+       #list li:hover {color: yellowgreen;} 
+       #list li:hover strong{color: yellowgreen;}
+        h3:hover {background: red;} 
+       a:link{color:red;text-decoration:dotted;}
+       #menu li a{color: green; text-decoration: none;}            
+       /* #menu li a:visited{color: orange;} */
+       #menu li a:hover{color: red; text-decoration: underline;}
+       /* #menu li a:focus{outline:none; color: yellowgreen;}
+       #menu li a:active{color: rebeccapurple;}
+       */
+       /* #menu li:first-child a{color:blue}
+       #menu li:nth-child(2) a{color:orange}
+       #menu li:last-child a{color:blueviolet} */
+       #menu li:nth-child(odd) a {color: orange;}
+       #menu li:nth-child(even) a {color: blue;}
+        /* :nth-child(n) : 이름이 같은 형제 관계에만 사용함 */
+
+
+    </style>
+</head>
+<body class="main">
+    <h3>Web Programming</h3>
+    <hr>
+    <div>
+        <strong>헤헤헤</strong>
+        <div>2학기 <strong>학습 내용</strong>입니다.</div>
+        <ul id="list">
+           
+                <li><span>html5</span></li>
+                <li><strong>css</strong></li>
+                <li>javascript</li>
+            
+        </ul>
+        <div class="warning">60점 이하는 F</div>
+    </div>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, enim veniam illum quibusdam vel nostrum. Ab maxime tenetur voluptatem aperiam dicta rerum quaerat similique. Pariatur est rem et explicabo ratione?
+    </p>
+    <ul id="menu">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+    </ul>
+</body>
+</html>

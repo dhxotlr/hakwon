@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding: 0; box-sizing: border-box;}
+        #parent{
+            width: 800px; 
+            margin: 0 auto; 
+            background: skyblue;
+            padding: 0 0px;
+            display: flex;
+            /* position: relative; */
+            height: 200px;
+            /* 자식들의 가로정렬문제(기본값 flex-start) */
+            justify-content:space-between;
+            /* 자식들의 세로정렬문제(기본값 stretch) */
+            align-items: flex-end;
+        }
+        /* #parent::after{ content: ''; display: block; clear: both;} */
+        .child{
+            border: 1px solid red;
+             /* flex: 0 1 50px; */
+            /* flex-grow: 0;
+            flex-shrink: 1; 
+            width: 50px; */
+           
+            /* flex-grow:1; 부모공간이 남아있으면 자식들이 확장되어서 채워짐
+            flex-shrink:1; 부모공간을 넘치게 되면 자식들이 축소되어서 채워짐 */
+
+            /* flex: 1 1 0; */
+            /* flex: 1; */
+            /* position: relative; top: 50%; left: 0%; */
+            
+        }
+        /* .child:nth-child(3){flex: 2; position: absolute; top: 0px; right: -100px;}
+        .child:nth-child(5){flex: 10;} */
+        #parent2{
+            max-width: 800px;
+            margin: 20px auto;
+            display: flex;
+            background: pink;
+            height: 400px;
+            /* 자식들의 줄바꿈 허용 wrap */
+            flex-wrap: wrap;
+            justify-content:flex-start;
+            align-items:center;
+            padding-left:100px ;
+            
+        }
+        .child2{
+            border: 1px solid red;
+            flex: 1 1 21%;
+            margin: 10px ;
+            
+           
+        }
+        #parent3{
+            max-width: 500px;
+            margin: 20px auto;
+            background: greenyellow;
+            display: flex;
+            /* justify-content: flex-start; */
+            /* align-items: stretch; */
+            /* flex 정렬의 방향: 기본값 row(수평축), column(수직축) */
+            /* 수직축으로 변하면 justify-content와 align-items가 입장이 바뀐다. */
+            flex-flow: column;
+            height: 300px;
+            
+        }
+        .child3{
+            border: 1px solid red;
+            flex-grow: 1 ;
+        }
+        .child3:nth-child(3){
+            flex: 3;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+        <div class="child">5</div>
+        <div class="child">6</div>
+    </div>
+    <div id="parent2">
+        <div class="child2">1</div>
+        <div class="child2">2</div>
+        <div class="child2">3</div>
+        <div class="child2">4</div>
+        <div class="child2">5</div>
+        <div class="child2">6</div>
+        <div class="child2">7</div>
+    </div>
+    <div id="parent3">
+        <div class="child3">1</div>
+        <div class="child3">2</div>
+        <div class="child3">3</div>
+        <div class="child3">4</div>
+    </div>
+</body>
+</html>

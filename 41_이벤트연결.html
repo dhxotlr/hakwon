@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1. 인라인이벤트 모델: html 요소에 직접 이벤트를 연결하는 방식
+        2. 기본이벤트 모델 : 이벤트를 연결할 html 요소를 취득한 후
+        이벤트를 객체의 매서드 형식으로 연결함
+        3. 표준이벤트 모델 : 객체.addEventListener('이벤트명',함수)의
+        방식으로 이벤트를 연결함
+     -->
+    <h1>
+        <p>
+        하오하오
+        </p>
+    </h1>
+    
+    <!-- <button type="button" id="btn1" onclick="changeText()">클릭</button> -->
+    
+    
+    <button type="button" id="btn1" ondb>클릭</button> 
+    <!-- 
+        마우스 이벤트종류: click, dblclick, mouseover/mouseout,
+                    mouseenter/mouseleave,mousedown,mouseup,mousemove
+        키이벤트 종류: keydown,keyup,keypress
+        form 이벤트 종류 : focus, blur, change, submit, reset, select
+        윈도우 이벤트 종류: load, abort, resize, scroll
+    -->
+    <script>
+        let elp=document.querySelector('p')
+        
+        function changeText(){
+            elp.textContent ="클릭이벤트가 발생했습니다."
+          
+        }
+        function changeColor(){
+            elp.style.color="red"
+        }
+        let elbtn =document.querySelector('#btn1')
+        //기본이벤트 모델은 객체에 동일한 이벤트가 있으면 마지막것만적용
+        elbtn.onclick= changeText
+        elbtn.onclick = changeColor
+                                    // 이벤트에 연결되는 함수호출문에는 ()를 붙이면 안됨
+
+        // elbtn.addEventListener('dblclick',changeText)
+        // elbtn.addEventListener('dblclick',changeColor)
+        
+
+    </script>
+</body>
+</html>

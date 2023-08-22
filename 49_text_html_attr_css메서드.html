@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        /* *{margin: 0 auto; box-sizing: border-box;}
+        ul,li{list-style: none; padding: 0;}
+        .potal{display: flex; justify-content: space-between;}
+        ul.potal li a{border: 1px solid black;padding: 20px 15px;} */
+        .gallery{max-width: 300px; margin: 50px auto; }
+        .gallery ul{display: flex; padding: 0; margin: 0;  list-style: none;}
+        .gallery ul li{width: 25%; border: 1px solid #000;}
+        .gallery ul li.on{border-color:red;}
+        .gallery ul li img{width: 100%; vertical-align: middle;}
+    </style>
+    <script>
+    //     헤드구역에서 할때는 이렇게
+        $(document).ready(function(){
+    //         let $h1 = $('h1')
+    //    $('h1').on('click',function(){
+    //        let txt = $(this).text()
+    //        $('p').text(txt)
+    //    })
+            // div를 클릭했을때 안에 있는 요소를 추출해서 p요소에 삽입하시오
+            $('div.school').on('click',function(){
+                $('p').html($(this).html())
+            })
+            $('.potal li a').on('click',function(){
+              let color=  $(this).css('color')
+              console.log(color)
+              $('p').text(color).css('background',color)
+              $('p').text(color).css({background:color, color:'#fff'})
+
+              return false; //a태그의 기본이벤트(이동)을 막아줌
+            })
+            $('.potal li a').each(function(){
+            let txt2 = $(this).attr('href')
+            console.log(txt2)
+            $(this).attr({title:txt2})
+            
+        })
+            $('.gallery ul li a img').on('click',function(){
+                $(this).parent().parent().addClass('on').siblings().removeClass('on')
+               console.log($(this).find('img').attr('src')) 
+               console.log($(this).find('img').attr('alt')) 
+               let imgname=$(this).find('img').attr('alt')
+               let srcname=$(this).find('img').attr('src')
+               $('.stage h2').text(imgname)
+               $('.stage img').attr({alt:imgname})
+               $(this).parents('ul').next().find('h2').text(imgname) // $('.stage h2').text(imgname)와 동일함
+               console.log($(this).attr('alt')) 
+               $('.stage img').attr({src:srcname})
+            })
+
+        })
+        
+        
+        
+    </script>  
+</head>
+<body>
+    <!-- 
+         text()     textContent
+         html()     innerHTML
+         attr()     setAttribute(),getAttribute
+         css()      style.속성명
+         setter     getter
+         
+         
+         text(값)                 text()
+         html(값)                 html()
+         attr({'속성명':'값'})    attr('속성명')
+         css({'속성명': '값'})    css('속성명')
+
+
+         .text(): 선택자 안에 있는 글자만을 추출
+         .html(): 선택자 안에 있는 태그(요소)를 추출
+         .attr('속성명'): 태그(요소)가 갖고 있는 속성의 속성값을 추출
+         .css('속성명'): css속성의 속성값을 추출
+
+         .text('문자'):선택자 안에 있는 글자를 수정하거나 입력
+         .html('<요소>내용</요소>'): 선택자 안에 있는 태그(요소)를 수정하거나 입력
+         .attr({속성명:'속성값'}): 태그 (요소) 속성을 수정하거나 입력
+         .css({속성명:'속성값'}): css 속성을 수정하거나 입력
+    -->
+
+    <h1>호호홍</h1>
+    <h1>하하하ㅏ</h1>
+    <div class="school">
+        <strong>그린컴퓨터</strong>
+    </div>
+    <ul class="potal">
+        <li><a href="http://www.daum.net"  style="color:red" >다음</a></li>
+        <li><a href="http://www.naver.com" style="color:green">네이버</a></li>
+        <li><a href="http://www.yahoo.com"  style="color:brown">야후</a></li>
+    </ul>
+    <p></p>
+    <div class="gallery">
+        <ul>
+            <li><a href="javascript:;"><img src="./source/9장/media/Desert.png" alt="사막"></a></li>
+            <li><a href="javascript:;"><img src="./source/9장/media/Hydrangeas.png" alt="꽃"></a></li>
+            <li><a href="javascript:;"><img src="./source/9장/media/Jellyfish.png" alt="물고기"></a></li>
+            <li><a href="javascript:;"><img src="./source/9장/media/Koala.png" alt="코알라"></a></li>
+        </ul>
+        <div class="stage">
+            <h2>사막</h2>
+            <img src="./source/9장/media/Desert.png" alt="사막">
+        </div>
+    </div>
+    
+
+    <script>
+    //     let $h1 = $('h1')
+    //    $('h1').on('click',function(){
+    //        let txt = $(this).text()
+    //        $('p').text(txt)
+    //    })
+        // let h1 = document.querySelectorAll('h1')
+        // for(let i=0; i<h1.length; i++){
+        //     h1[i].onclick = function(){
+        //     let txt =this.textContent
+        //     document.querySelector('p').textContent = txt
+        // }
+        // }
+        // $('.school').on('click',function(){
+        //         $('p').html($(this).html())
+        //     })
+       
+    </script>
+</body>
+</html>

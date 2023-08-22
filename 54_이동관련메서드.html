@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        /* *{margin: 0 auto; box-sizing: border-box;}
+        ul,li{list-style: none; padding: 0;}
+        .potal{display: flex; justify-content: space-between;}
+        ul.potal li a{border: 1px solid black;padding: 20px 15px;} */
+        .gallery{max-width: 300px;
+             margin: 50px auto; 
+             overflow: hidden; 
+             position: relative;
+             height: 223.5px;}
+        .gallery ul{
+            list-style: none; 
+            display: flex;
+            padding: 0; 
+            margin: 0; 
+            list-style: none; 
+            /* height: 200px;  */
+            box-sizing: border-box;
+            width: 400%; 
+            position: absolute; top: 0; left: 0px;       
+        }
+
+        .gallery ul li{ 
+            border: 1px solid #000; 
+            width: 25%; 
+        }
+   
+        .gallery ul li img{width: 100%; vertical-align: middle;}
+        .gallery .btn{
+            position: absolute; width: 100%; top:80%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        $('선택자').prependTo('기준요소'): 선택자를 기준요소의 첫번째 자식으로 이동
+        $('선택자').appendTo('기준요소'): 선택자를 기준요소의 마지막 자식으로 이동
+        $('선택자').insertBefore('기준요소'): 선택자를 기준요소의 이전형제로 이동
+        $('선택자').insertAfter('기준요소'): 선택자를 기준요소의 다음형제로 이동
+
+     -->
+     <ul class="depth1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+     </ul>
+     <button type="button">prependTo</button>
+     <button type="button">appendTo</button>
+     <button type="button">insertBefore</button>
+     <button type="button">insertAfter</button>
+
+     <div class="gallery">
+        <ul>
+            <li><a href="javascript:;"><img src="./source/9장/media/Desert.png" alt="사막"></a></li>
+            <li><a href="javascript:;"><img src="./source/9장/media/Hydrangeas.png" alt="꽃"></a></li>
+            <li><a href="javascript:;"><img src="./source/9장/media/Jellyfish.png" alt="물고기"></a></li>
+            <li><a href="javascript:;"><img src="./source/9장/media/Koala.png" alt="코알라"></a></li>
+        </ul>
+ 
+        <div class="btn">
+            <button type="button">이전</button>
+            <button type="button">다음</button>
+        </div>
+    </div>
+   
+     <script>
+        $('button').eq(0).on('click',function(){
+            $('ul li:last-child').prependTo('.depth1')
+        })
+        $('button').eq(1).on('click',function(){
+            $('ul li:first-child').appendTo('.depth1')
+        })
+        $('button').eq(2).on('click',function(){
+            $('ul li:last-child').insertBefore('.depth1 li:first-child')
+        })
+        $('button').eq(3).on('click',function(){
+            $('ul li:first-child').insertAfter('.depth1 li:nth-child(4)')
+        })
+        // $('.btn button').eq(0).on('click',function(){
+        //     $('.gallery ul li:first-child').appendTo('.gallery ul')
+        // })
+        // $('.btn button').eq(1).on('click',function(){
+        //     $('.gallery ul li:last-child').prependTo('.gallery ul')
+        // })
+        let count=0;
+        
+        $('.btn button').eq(0).on('click',function(){
+            if(count>0){
+            $('.gallery ul').animate({
+            left:'+=100%'
+           },300)
+            count--;
+           }
+        })
+        $('.btn button').eq(1).on('click',function(){
+            if(count<3){
+                $('.gallery ul').animate({
+            left:'-=100%'
+           },300)
+            count++;
+            }
+        })
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let garde;
+        let score = prompt("점수를 입력하세요",100);
+        score  = parseInt(score)
+        // document.write(score)
+        // if(score>90){
+        //     grade = 'A'
+        // }
+        // else if(score>80){
+        //     grade = 'B'
+
+        // }
+        // else{
+        //     grade = "죽엉";
+        // }
+        score=parseInt(score/10);
+        switch (score){
+            case 10: 
+            case 9: grade='A'; break;
+            case 8: grade='B'; break;
+            case 7: grade='C'; break;
+            case 6: grade='D'; break;
+            default : grade="죽빵"; break;
+        }
+
+        alert(grade);
+
+    </script>
+</body>
+</html>

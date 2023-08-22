@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+  <style>
+    span {color: aquamarine;}
+  </style>
+<link rel="stylesheet" href="./css/style18.css">
+</head>
+<body>
+    <h3 style="color:brown">CSS 스타일맛보기</h3>
+    <hr>
+ <div id="'ps">
+        <p class="first">
+            나는 <span>웹 프로그래밍</span>을 좋아한다.
+        </p>
+        <p class="second">
+            나는 두번째 p태그입니다.
+        </p>
+ </div>
+    <!-- id 선택자는 중복되면 안됨 (큰그릇)
+         class 선택자는 중복가능 (작은그릇)
+         선택자 우선순위: id>class>태그>전체 -->
+ <ul id="list1" class="depth1">
+    <li class="first">리스트1</li>
+    <li class="second">리스트2</li>
+ </ul>
+ <ul id="list2">
+    <li class="first">리스트1</li>
+    <li class="second">리스트2
+        <ul>
+            <li>중첩리스트1</li>
+            <li>중첩리스트2</li>
+        </ul>
+    </li>
+ </ul>
+</body>
+</html>

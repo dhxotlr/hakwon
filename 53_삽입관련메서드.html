@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <!-- 
+        $('선택자').prepend('삽입요소'): 선택자의 첫번째 자식으로 삽입됨
+        $('선택자').append('삽입요소'): 선택자의 마지막 자식으로 삽입됨
+        $('선택자').before('삽입요소'): 선택자의 이전 형제요소로 삽입됨
+        $('선택자').after('삽입요소'): 선택자의 다음 형제요소로 삽입됨
+     -->
+     <div id="m1"><strong>내용1</strong></div>
+     <div id="m2"><strong>내용2</strong></div>
+     <button tpye="button">prepend</button>
+     <button tpye="button">append</button>
+     <button tpye="button">before</button>
+     <button tpye="button">after</button>
+     <script>
+        $('button').eq(0).on('click',function(){
+            $('#m1,#m2').prepend('<p>새로 삽입된 요소</p>')
+        })
+        $('button').eq(1).on('click',function(){
+            $('#m1,#m2').append('<p>새로 삽입된 요소</p>')
+        })
+        $('button').eq(2).on('click',function(){
+            $('#m1,#m2').before('<p>새로 삽입된 요소</p>')
+        })
+        $('button').eq(3).on('click',function(){
+            $('#m1,#m2').after('<p>새로 삽입된 요소</p>')
+        })
+     </script>
+</body>
+</html>

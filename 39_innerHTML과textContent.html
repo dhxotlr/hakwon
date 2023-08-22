@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <ul class="depth1">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <script>
+            let elli=document.querySelectorAll('.depth1 > li')
+           for(let i=0; i<elli.length; i++){
+             let text =elli[i].textContent
+             text =`<a href='#'>${text}</a>`
+             elli[i].innerHTML=text
+           }
+            console.log(elli[0].textContent)
+            console.log(elli[0].innerHTML)
+            for(let i=0; i<elli.length; i++){
+                
+            //     elli[i].textContent = `링크${i+1}`
+            //    let text =  elli[i].textContent
+            //     text=`<a href="#">${text}</a>`
+            //     elli[i].innerHTML=text
+            elli[i].innerHTML =`<a href='#'>링크${i+1}</a>`
+            }
+        </script>
+    </ul>
+</body>
+</html>

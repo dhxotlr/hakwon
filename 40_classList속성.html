@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{color:red}
+        .font50 {font-size:50px;}
+        .bgpink {background: pink;}
+    </style>
+    
+</head>
+<body>
+    <h2>호홍홍</h2>
+    <button onclick="colorChange()">글자색변경</button>
+    <button onclick="fontsizeChage()">글자크기변경</button>
+    <button onclick="bgChange()">배경색변경</button>
+    <button onclick="cllear()">스타일 지우기</button>
+    <script>
+        let elh2 = document.querySelector('h2')
+        let list = elh2.classList
+        function colorChange(){
+            list.add("red")
+        }
+        function fontsizeChage(){
+            list.add("font50")
+        }
+        function bgChange(){
+            list.toggle("bgpink")
+        }
+        function cllear(){
+            list.remove("font50" , "bgpink" , "red")
+        }
+
+    </script>
+</body>
+</html>

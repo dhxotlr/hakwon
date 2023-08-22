@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body{height: 3000px;}
+        /* potiton: absolute| relative| fixed | static | sticky
+        absolute: 자식이 상위요소를 기준으로 위치를 잡을때 갖는 값
+                  이떄 상위요소는 반드시 position 속성을 가져야 함
+        rerlative: 자기자신의 현재위치를 기준으로 이동하고자 할떄 갖는 값
+                   주변에 영향을 미치지 않음
+        fixed: 브라우저를 기준으로 이동함 (화면을 이동해도 따라온다.)
+        sticky: 세로스크롤바를 이동하여 해당 박스가 브라우조 꼭대기에서 만났을때 고정 sticky는 top과 세트다.
+        */
+        .parent{width: 500px;height: 300px; margin: 0 auto;
+            background: pink;
+            position: fixed; bottom: 0; right: 0;
+            z-index: 10;
+        }
+        .child {width:100px; height: 100px;}
+        .child:nth-child(1){background: red;
+            position: relative; top:150px;
+            z-index: 3;
+        }
+        .child:nth-child(2){background:green;
+            position: absolute; top:50%; right: 53%;
+            margin-top: -220px;
+            margin-right: 180px;
+            /* width: 100%; */
+            z-index: 5;
+        }
+        .child:nth-child(3){background: blue;
+        position: relative; top:-20px; left:20px;}
+        .other{height: 500px; background: red; margin: 100px;}
+        .stickybox{height: 100px; background: green;margin: 100px;
+            position: sticky; top: 400px;
+        }
+    </style>
+   
+    <div class="parent">
+        <div class="child">자식1</div>
+        <div class="child">자식2</div>
+        <div class="child">자식3</div>
+    </div>
+    <div class="other"> 
+        
+
+    </div>
+    <div class="stickybox"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 모듈화: 재사용할 수 있는 단위로 나눈 코드들의 묶음(함수,배열, 객체등)
+        import: 다른 곳의 모듈을 사용하고 싶을때 import문이 있는 script type module이어야 함 <script type="module">
+        export: 다른곳으로 모듈을 내보낼때 사용
+
+        let numbers=[1,2,3,4,5]
+        function sayHi(user){
+            alert("경고창")
+        }
+        let student ={ irum:'김은영', kor:80, eng:90, avg:function(){return(this.kor+this.eng)/2}
+
+        export default numbers; // 대표로 하나만 내보내기
+        import numbers from './scripts.js' //객체이름 변경가능
+        
+        export {numbers, sayHi, student} //여러개 내보내기
+        import {numbers, sayHi, student} from './scripts.js' //객체이름 변경불가
+        //위의 코드를 별도의 script.js로 저장했다고 가정함
+        import *as objects from './script.js' 오브젝트 자리에 있는건 아무거나 써도 가능 
+        // object.numbers, object.sayHi(), objects.student
+        
+
+        }
+    -->
+</body>
+</html>

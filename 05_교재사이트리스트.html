@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     /* .nav  li:nth-child(3) a{color:red;} */
+     /* .name a{color: red;} */
+     nav > ul >li:nth-child(3)>a{color:red}
+     nav > ul>li:nth-child(5) ul li:last-child a{color: green;}
+    </style>
+</head>
+<body>
+      <header>
+            <h1>
+                <!-- 링크주소가 확실하지 않을때는 #을써주는게 관례 -->
+                <a href="http://webprogramming.co.kr/"target="_blank"><img src="http://webprogramming.co.kr/files/attach/images/133/52e67495e598c2af819b4c7553aea96f.png" alt="웹프로그래밍"></a>
+                
+            </h1>
+           
+            
+         <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Introdiction</a>
+                        <ul>
+                            <li><a href="#">About Book</a></li>
+                            <li><a href="#">About IDE</a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="#">Notice</a></li>
+                    <li><a href="#">Board</a>
+                        <ul>
+                            <li><a href="#">Know-How</a></li>
+                            <li><a href="#">Admin's Blog</a></li>
+                            <li><a href="#">Q&amp;A</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Support</a>
+                        <ul>
+                            <li><a href="#">Link</a></li>
+                            <li><a href="#">Download</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Code</a>
+                        <ul>
+                            <li><a href="#">Example</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            
+         </nav>
+      </header>
+    
+     
+    
+</body>
+</html>

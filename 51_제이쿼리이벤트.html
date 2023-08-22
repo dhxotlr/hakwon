@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div>
+        <a href="http://www.naver.com">네이버</a>
+    </div>
+    <form action="#" method="post" name="join">
+        <input type="text" name="irum" >
+        <button type="submit">전송</button>
+        
+    </form>
+
+    <div id="parent" style="background: red; padding: 20px;">
+        <div id="child" style="background: pink; width: 50px; height: 50px;">자식</div>
+    </div>
+
+    <!--
+        target: 이벤트를 발생시킨 객체를 반환
+        type: 이벤트의 이름을 반환
+        clientX: 이벤트가 발생한 x좌표값 반환(브라우저 기준) 
+        clientY: 이벤트가 발생한 y좌표값 반환(브라우저 기준) 
+        screenX: 이벤트가 발생한 x좌표값 반환(모니터 기준) 
+        screenX: 이벤트가 발생한 x좌표값 반환(모니터 기준) 
+        button: 마우스 왼쪽(0),가운데(1),오른쪽(2) 버튼값 반환
+        preventDefault():기본이벤트를 막아줌
+        stopPropagation():이벤트 전파를 막아줌
+
+     -->
+    <script>
+        $('div a').on('click',function(event){//  이벤트 발생하지 않기
+            event.preventDefault()
+            console.log(event)
+            // return false;  이걸 많이 쓴다.
+
+        })
+        $('form').on('submit',function(i){
+        //    let i= i.clientX
+           console.log(i)
+            let irum= $('input').val()
+            if(!irum){
+                alert("입력하시오")
+                return false;
+            }
+
+
+            // i.preventDefault();
+            return false;
+        })
+        $('#parent').on('click',function(){
+            $(this).css({
+                background:'yellow'
+            })
+        })
+        // $('#parent').on('mouseover',function(){
+        //     $(this).css({
+        //         background:'green'
+        //     })
+        // })
+        // $('#parent').on('mouseout',function(){
+        //     $(this).css({
+        //         background:'red'
+        //     })
+        // })
+        $('#parent').hover(
+            function(){
+                $(this).css({background:'green'})
+            },
+            function(){
+                $(this).css({background:'blue'})
+            }
+        )
+        $('#child').on('click',function(e){
+            e.stopPropagation()         // 이벤트전파 방지 메서드
+            $(this).css({
+                background:'orange'
+            })
+        })
+
+    </script>
+</body>
+</html>

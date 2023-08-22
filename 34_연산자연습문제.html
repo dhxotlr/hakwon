@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x=1, y=2, z=3, w=4;
+        y=x++;
+        z +=x;
+        w = (w>3) ? w-3 : 3-w;
+
+        //x=2 y=1 z=5 w=3
+        document.write(x+"<br>")
+        document.write(y+"<br>")
+        document.write(w+"<br>")
+        document.write(z+"<br>")
+        
+        let a = 1,b=2,c=3,d=4;
+        x = (a>1) || (c!=3);
+        y = (a!=b) && (c!=d);
+        z = (a==1);
+        //f t t 
+        document.write(x)
+        document.write(y)
+        document.write(z+"<br>")
+
+        x = 1+2+"hello"+3+4;
+        y = 1+"hello"+2+3
+        
+        document.write(x+"<br>")
+        document.write(y+"<br>")
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 블록요소들을 한줄로 정렬하기 위한 방법
+    1.display: inline-block; (사이에 여백이 생김)
+    2.float: left | right; 
+    1 자식들이 전부다 float 정렬을 하면 부모구조가 무너짐
+    부모한테 class="cf" 추가하거나 overflow:hidden 추가(밑으로 나오는 메뉴가 없을때)
+    2 형들이 float 정렬을 하면 동생한테 문제가 생김
+    동생한테 clear:both 추가
+    -->
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        ul{list-style: none; max-width: 800px; margin: 50px auto 0;
+           border: 1px solid #000;
+           background: pink;
+        }
+       .cf::after{
+        content: ''; display: block; clear: both;
+       }
+        ul li{border: 1px solid #f00;width: 25%;
+        /* display: inline-block; */
+        float: left;
+        }
+        
+    </style>
+    <ul class="cf">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+    </ul>
+    <ul class="cf">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+    </ul>
+    <p style="width: 30%; float: left; background-color: lime;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, porro optio. Voluptate dolorem, culpa consequuntur cupiditate quasi harum quas hic sequi dolorum. Natus laboriosam tempora laudantium ratione labore provident dolore.</p>
+    <p style="width: 70%; float: right; background-color: orange;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ut. Rem vel ex consequatur autem nesciunt ea consectetur quod tempore officiis, vitae neque, odit necessitatibus veritatis non placeat hic perspiciatis!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus voluptates explicabo hic provident quibusdam excepturi eveniet perspiciatis nisi reiciendis nemo ratione accusamus incidunt fugit inventore eos beatae sapiente, voluptatem magnam?
+    </p>
+    <div style="clear: both;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis explicabo consectetur dolore quae quibusdam, facilis tempora possimus et eaque maiores suscipit praesentium repudiandae, quam reiciendis. Dolorum enim necessitatibus laudantium quasi.
+    </div>
+</body>
+</html>

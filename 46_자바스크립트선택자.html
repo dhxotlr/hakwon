@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        오태식ㄷㄷ
+    </div>
+    <nav id="gnb">
+        <ul>
+            <li>내용1</li>
+            <li>내용2</li>
+            <li>내용3</li>
+        </ul>
+    </nav>
+    <div>
+        오태식
+    </div>
+    <script>
+        //parentNode:부모노드를 가리킴
+        //childNodes[n]:자식노드들을 가리킴(공백도 포함)
+        //children[n]:자식노드들을 가리킴
+        //nextSibling: 선택된 요소의 다음 형제 노드를 선택함(공백포함)
+        //nextElementSibling: 선택된 요소의 다음 형제 노드를 선택함
+        //previousSibling: 선택된 요소의 이전 형제 노드를 선택함 (공백포함)
+        //previousElementSibling:선택된 요소의 이전 형제 노드를 선택함
+        //firstChild: 선택된 요소의 첫 번째 자식 노드를 선택함(공백포함)
+        //firstElementChild: 선택된 요소의 첫 번째 자식 노드를 선택함
+        //lastChild: 선택된 요소의 마지막 자식 노드를 선택함 (공백포함)
+        //lastElementChild: 선택된 요소의 마지막 자식 노드를 선택함
+
+
+        let gnb = document.querySelector("#gnb")
+        gnb.parentNode.style.background ="yellow"
+        gnb.children[0].style.border="1px solid red"
+        // gnb.childNodes[1].style.border ="1px solid #fff"
+
+        gnb.childNodes[1].children[0].style.color = "#fff"
+        gnb.nextElementSibling.style.background="pink"
+        gnb.previousElementSibling.style.background="green"
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{border: 1px solid red;margin: 0; padding: 0;}
+        html{padding: 10px;margin:10px; box-sizing:border-box;}
+        body{padding: 10px;margin:10px;}
+        
+        div{padding: 10px;margin:10px auto;width:500px; background:lime;}
+        p{padding: 10px;margin:10px auto; width:300px; background:brown;}
+        /* 넓이가 지정된 박스를 부모의 중간으로 정렬할때는
+        위아래 넓이와 양옆을 auto로 지정한다. */
+        ul{list-style: none; border: none;}
+        ul li{border-color: green; width: 200px; display: inline-block;}
+        ul li a {border: none; padding: 10px; display: block;
+        
+        text-align: center; color: black;text-decoration:none ;}
+
+        span{border:none; padding: 10px; display: inline-block;
+        text-align: center; color: black; text-decoration:none ;}
+        /* 인라인태그는 상하 margin이 안먹힘 , 추가로 block 성격 추가함 */
+        /* 박스의 기본넓이: 블록태그는 부모와 같은 넓이
+        인라인 태그는 자식이랑 같은 넓이 */
+        /* 인라인 태그: width, height가 적용이 안됨 display:block; */
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            Lorem ipsum <span>dolor</span> sit amet, consectetur adipisicing elit. Libero maxime eaque tenetur cumque blanditiis odit architecto aliquid incidunt, et quidem harum perspiciatis enim deserunt similique culpa, deleniti molestiae laudantium molestias.
+        </p>
+    </div>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+    </ul>
+</body>
+</html>

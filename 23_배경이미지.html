@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #box1{width:300px; height: 300px; border: 11px solid #ff0000;
+        margin:50px auto;
+        /* background-color: pink; */
+        background-image: url(./source/5장/media/christmastree.png);
+        background-size: 100px auto;
+        /* contain: 이미지 기준 가로세로 비율중 높은 쪽을 기준으로 div 박스안에 맞춰준다.
+           오버플로우가 발생하지 않음
+           cover: 이미지 기준 가로세로 비율중 낮은 쪽을 기준으로 div 박스안에 맞춰준다.
+           오버플로우가 발생함, 공간을 이미지로 꽉 채우고자 한다면 쓴다.
+        */
+        background-repeat: no-repeat;
+        background-position:center;
+        /* left(0%),top(0%),right(100%),bottom(100%) center(50%) */
+        
+        }
+        div#box2{width:300px; height: 300px; border: 11px solid #ff0000;
+        margin:50px auto;
+        background:url(./source/5장/media/christmastree.png) no-repeat 50% 50% /100px auto ;
+        
+    
+        }
+        #box3{width:300px; height: 300px; border: 11px solid #ff0000;
+        margin:50px auto;
+        background-color: aliceblue;
+        background-image: url(./source/5장/media/spade-3.png),url(./source/5장/media/spade-2.png);
+        background-size: 100px auto,100px auto;
+        background-repeat: no-repeat;
+        background-position: left top,right top;
+        
+
+        }
+        #box4{
+            width:300px; height: 300px; border: 11px solid #ff0000;
+        margin:50px auto;
+        background-color: aliceblue;
+        
+        background-image: url(./source/5장/media/spade-3.png),url(./source/5장/media/spade-2.png);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: left top,right top;}
+
+    </style>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+</body>
+</html>

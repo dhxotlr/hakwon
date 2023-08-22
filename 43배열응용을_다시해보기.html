@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content{max-width: 500px;margin: 50px auto;}
+       
+        #content ul li{background-color: black;}
+    </style>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+    <script>
+        let content = document.querySelector("#content")
+        let students=['김은영',100,'장나라',80,'홍길동',90]
+        let newstudents=students.filter(function(value){
+            return typeof(value)==="string"
+        })
+        let list = "<ul>"
+        for(let i=0; i<newstudents.length; i++){
+            list+=`<li>${newstudents[i]}님 환영합니다.</li>`
+        }
+        for(let i in newstudents){
+            list+=`<li>${newstudents[i]}와우 환영해요</li>`
+        }
+        newstudents.forEach(function(value){
+            list+=`<li>${value}님 환영합니다.</li>`
+        })
+        list+="</ul>"
+        content.innerHTML=list
+      
+    </script>
+</body>
+</html>

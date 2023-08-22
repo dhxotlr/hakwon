@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr = new Array(10,20,30,"ㅎ하하",3.5,true,"eeee")//배열객체생성
+        let arr = [10,20,30,"ㅎ하하",3.5,true,['a','b','c'],"홍길동"]//객체리터럴
+        for(let i=0; i<arr.length; i++){
+            document.write(arr[i]+"<br>")
+        }
+        let arr1 =[[10,20,30],[40,"dk",3.2]]
+        // document.write(arr1[1][2])
+        // for(let i=0; i<arr1.length; i++){
+        //     for(let j=0; j<arr1[i].length; j++){
+        //         document.write(arr1[i][j]+" ")
+        //     }
+        //     document.write("<br>")
+        // }
+        // 배열.toString() : 배열값을 콤마로 구분된 문자열로 반환함
+        let fruits=["바나나","오렌지","사과","망고","레몬"]
+        document.write(fruits.toString()+"<br>")
+        //배열.join() : 배열값을 제시된 문자로 연결하여 하나의 문자열로 만들어서 출력함
+        document.write(fruits.join("&")+"<br>")
+        //배열.push(): 배열의 마지막요소 추가
+        //배열.unshift(): 배열의 첫번째요소 추가
+        //배열.pop():배열의 마지막요소 삭제
+        fruits.push("파인애플")
+        fruits.unshift("포도")
+        fruits.pop()
+        document.write(fruits.toString()+"<br>")
+
+        //배열.splice(위치번호, 삭제갯수, 값) : 배열의 지정된 위치의 요소를 추가, 삭제, 수정할 수 있음
+        let alphabet = ['a','b','d','f']
+        alphabet.splice(2,0,'c')
+        document.write(alphabet.toString()+"<br>")
+        alphabet.splice(4,1,'e')
+        document.write(alphabet.toString()+"<br>")
+        //배열.indexOf('찾는문자열') 찾는값이 없으면 -1이 구해짐
+        
+        alphabet.splice(alphabet.indexOf('a'),1)
+        document.write(alphabet.toString()+"<br>")
+
+        //배열.slice(시작인덱스,끝 인덱스+1):
+        let num = [300,400,100,200,500]
+        let newnum = num.slice(1,4)
+        document.write(newnum.toString()+"<br>")
+        document.write(num.toString()+"<br>")
+        let newnum1 = num.slice(1)
+        document.write(newnum1.toString()+"<br>")
+
+        //배열.reverse(); 배열을 역순으로 정렬하여 배열을 생성
+        let newnum3 = num.reverse()
+        document.write(newnum3.toString()+"<br>")
+        document.write(num.toString()+"<br>")
+
+        //배열.sort() : 배열요소들을 내림차순 또는 오름차순으로 정렬
+            function compare(a,b){
+                return a-b  //a-b: 오름차순 b-a: 내림차순
+            }
+            num.sort(compare)
+            document.write(num.toString()+"<br>")
+        //배열1.concat(배열2) : 새로운 배열을 생성,기존배열은 유지
+        let numalphabet = num.concat(alphabet)
+        document.write(numalphabet.toString()+"<br>")
+        document.write(num.toString()+"<br>")
+
+        //배열.map(function(value,index){}): 배열요소를 순차적으로 접근함
+        // map은 리턴기능으로 값에 접근이 가능하다.
+        // 기능이 같은 forEach같은 경우는 리턴기능이 불가능하다.
+           
+        // num.map(function (value, index){
+            //     document.write(value+", "+index+"<br>")
+            // })
+            num.map((value, index)=>document.write(value+", "+index+"<br>"))
+
+
+
+            // let multiplynum = num.map(function (value, index){
+            //    return value*2
+            // })
+            let multiplynum = num.map((value, index)=> value*2)
+          
+            // multiplynum.map(function (value, index){
+            //     document.write(value+", "+index+"<br>")
+            // })
+            multiplynum.map((value, index)=>document.write(value+", "+index+"<br>"))
+
+
+            document.write(multiplynum.toString()+"<br>")
+            document.write(num.toString()+"<br>")
+
+            //배열.forEach(function(value,index){}): 맵과 같은 기능
+            
+            // num.forEach(function(value,index){
+            //     document.write(`${index}.${value} <br>`)
+            // })
+            num.forEach((value,index)=>{
+            value+=1
+            document.write(`${index}.${value} <br>`)})
+          
+            //배열.filter(function(value,index){}) : 조건에 맞는 값들을 필터링해서 retrun문을 사용
+            let people = arr.filter((value,index)=>{
+                let kind =typeof(value)     //number,string,object,boolean
+
+                return kind==="object"
+            })
+            document.write(people.toString()+"<br>")
+            //배열.find(function(value,index){}): 조건에 맞는 첫번째 값을 한개만 반환
+            
+            document.write(num.toString()+"<br>")
+            let findnum=num.find(value=>value>=300)
+            document.write(findnum+"<br>")
+
+            //배열.findIndex(function(value,index){}): 조건에 맞는 첫번쨰 index번호를반환 값이 없으면 -1로 반환
+
+            let indexnum = num.findIndex(value=>value>=1000)
+            document.write(indexnum+"<br>")
+    </script>
+</body>
+</html>

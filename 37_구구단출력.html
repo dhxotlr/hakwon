@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{max-width: 800px; margin: 50px auto;}
+        table{width: 100%; border-collapse: collapse; }
+        
+        h3{text-align: center;}
+        table tr:nth-child(1)>td:nth-child(2){text-align: center; background-color: red; }
+        /* table tr:nth-child(1){background-color: black;} */
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <h3>구구단</h3>
+       <div id="gugudan">
+        
+       </div>
+    </div>
+
+    <script>
+        let table="<table border='1'>";
+        
+        for(let j=1; j<10; j++){
+            table += "<tr>"
+            for(let i=2; i<10; i++){
+                
+                table +=`<td>${i}*${j}=${i*j}</td>`;
+                
+            }
+            table += "</tr>"
+        }
+        table += "</table>"
+        console.log(table)
+        document.getElementById("gugudan").innerHTML=table
+        
+    </script>
+</body>
+</html>

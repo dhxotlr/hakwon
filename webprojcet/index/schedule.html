@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./rwd.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+</head>
+<body>
+    <div class="header"></div>
+   <section class="prdBox row">
+        <div id="title">
+            <h2>한국산업인력공단 국가자격 시험일정</h2>
+        </div>
+       
+   </section>
+    <div class="footer"></div>
+    <script src="../js/common.js"></script>
+    <script>
+        let data ='';
+        $.ajax({
+            type:'GET',
+            url:'https://apis.data.go.kr/B190001/localGiftsPaymentV2/paymentsV2?serviceKey=%2F7iAjlouuQi%2FvSKDJKlruvmRJG7Q1MK0zr3%2BBuDp%2BSLbTFHMJ0tO%2FKjASSyzwrWr72RY%2BMBhyAYxfOSY3fMDEw%3D%3D&page=1&perPage=20&cond[par_gend::EQ]=F&cond[par_ag::EQ]=02&cond[pvsn_inst_cd::EQ]=I0000001',
+            dataType:'json',
+            
+            success:function(rdata){
+                
+                console.log(rdata.data)
+                // data =rdata.body.items
+                // usedata()
+                
+            },
+            error: function(xhr){
+               alert(xhr.status+"/"+xhr.errorText)
+            }
+           
+        })
+        function usedata(){
+                
+            }
+    </script>
+   
+</body>
+</html>

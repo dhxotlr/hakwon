@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수선언 키워드 : var, let, const
+        // 전역변수 선언 : var(함수문 블록안에서 선언하면 지역변수)
+        // 블록(함수문,조건문,반복문)변수(지역변수) 선언 : let, const
+        var a;
+        console.log(a)//undefined
+        a=10;
+        console.log(a)
+        var a = 10;
+        console.log(a)
+        function add(){
+            var b = 30;
+            console.log(a,b)
+        }
+        add()
+        console.log(a)
+        // console.log(b)
+
+        let z=100;
+        z=10;
+        console.log(z)
+        {
+            var kin ="tewwwwwwwwqer"
+        
+            // let kin ="teqer"
+            // console.log(kin)
+        }
+        console.log(kin)
+        const add1  = (a,b) =>{
+            return a+b;
+        }
+    </script>
+</body>
+</html>
