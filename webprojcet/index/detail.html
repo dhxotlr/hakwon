@@ -162,7 +162,7 @@
         $('.detailBox').append(infobox)
         let quantity=0;
         let total = 0;              
-        $('.detailBox').on('click','.qty__plus',function(){
+        $('body').on('click','.qty__plus',function(){
             
             quantity=$('.qty__input').val()
             if(quantity){
@@ -177,7 +177,7 @@
             
             
         })
-        $('.detailBox').on('click','.qty__minus',function(){
+        $('body').on('click','.qty__minus',function(){
             quantity=parseInt($('.qty__input').val())
             if(quantity>1){
             $('.qty__input').val(--quantity)
@@ -212,7 +212,7 @@
             
             let btn_class = $(document.activeElement).attr('class');
             console.log(btn_class)
-            let sizeValue = '';
+            let sizeValue = "";
             $('input[name="size"]').each(function(){
                 if($(this).prop('checked')){
                     sizeValue=$(this).val();
@@ -230,9 +230,10 @@
             let newitem ={
                 name : detail[0],
                 price : detail[1],
+                photo : detail[2],
                 size : sizeValue,
                 color : colorValue,
-                quantity : quantity,
+                quantity : quantity
                 // total : total 필요없음
 
             }
@@ -249,9 +250,9 @@
             // location.href="http://localhost:5502/cart.html"
             
             if(btn_class=="cart"){
-                location.href = "http://localhost:5502/cart.html"
+                location.href = "./cart.html"
             }else{
-                location.href = "http://localhost:5502/buy.html"
+                location.href = "./buy.html"
             }
 
         })

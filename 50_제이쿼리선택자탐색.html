@@ -53,7 +53,7 @@
         //odd(홀수),even(짝수)은 인덱스번호 0번부터 시작함
         $('ul> li:even').css({color:'red'})
         //eq()는 관계와 상관없이 먼저 마크된 순서대로 인덱스번호가 부여됨
-        $('ul>li').eq(6).css({fontSize:'30px'})
+        $('ul>li').eq(6).css({fontSize:'100px'})
         $('ul>li').eq(-4).css({fontSize:'30px'})
         //siblings() : 나를 제외한 나머지 형제들 사촌은 포함 안됨
         $('ul>li').eq(0).siblings().css({background:'yellow'})
@@ -65,15 +65,15 @@
         //배열의 filter()와 구분하여 사용할것: 배열,filter(함수 (value,index))
         //filter('선택자'),filter(함수(index,value){}):관계와 상관없이 먼저 마크된 순서대로 인덱스번호가 부여됨
         $('ul li').filter('.special').css({
-            margin:'10px 0'
+            margin:'100px 500px'
         })
         //3의 배수번째 li들에 보더를 적용할것
         $('ul li').filter(function(index,selector){
            return index%3==0;
-        }).css({border:'3px solid pink'})
+        }).css({border:'30px solid pink'})
         //not():관계와 상관없이 적용됨
         $('ul li').not('.special').css({
-           paddingLeft:'100px'
+           paddingLeft:'010px'
         })
     </script>
 </body>

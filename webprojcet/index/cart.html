@@ -14,13 +14,149 @@
 </head>
 <body>
     <div class="header"></div>
-  
-   <section class="cartBox row">
-    장바구니
+    <style>
+        .cartBox { padding:100px 0; }
+        .cartBox .cartInfo { text-align:center; margin:20px 0;  }
+        .cartBox .cartInfo p { margin:20px 0 }
+        .cartBox col:nth-child(1){width: 150px;}
+        .cartBox col:nth-child(2){width: auto;}
+        .cartBox col:nth-child(3){width: 100px;}
+        .cartBox col:nth-child(4){width: 100px;}
+        .cartBox col:nth-child(5){width: 80px;}
+        .cartBox table thead th{padding:15px 0;}
+        .cartBox table tbody td{ text-align: center;}
+        .cartBox table tfoot td{padding: 5px 0; text-align: center; font-size: 30px;}
+        .cartBox table tbody button {padding:5px 10px; background: #555; color: #fff;}
+        .cartBox table tbody input {width: 30px; text-align: center; height: 30px; display: block; margin: 3px auto;}
     
+       </style>
+   <section class="cartBox row">
+    <div class="cartInfo">
+        <h2>장바구니</h2>
+        <p></p>
+    </div>
+
    </section>
     <div class="footer"></div>
     <script src="../js/common.js"></script>
+    <script>
+       let cartList = JSON.parse(localStorage.getItem("allItem"))
+       if(cartList){
+        $('.cartInfo p').text("")
+        let total =0;
+        let trList = `<table border="1">
+                    <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                     </colgroup>
+                     <thead>
+                    <tr>
+                    <th>이미지</th>
+                    <th>상품정보</th>
+                    <th>수량</th>
+                    <th>금액</th>
+                    <th>선택</th>
+                    </tr>
+                    </thead>`
+            trList += `<tbody>`
+        cartList.forEach((value, index)=>{
+            trList +=`<tr>`
+            trList+=`<td><img src="../images/${value.photo}" alt=""></td>`
+            trList+= `<td>${value.name}<br><span class="price">${value.price}</span></td>`
+            trList+= `<td>
+                      <button type="button" class="qty__plus">+</button> 
+                      <input type="text" value="${value.quantity}" autucomplete="off" class="qty__input">
+                      <button type="button" class="qty__minus">-</button>     
+                      </td>`
+            trList +=`<td class="myTotal">${value.quantity*value.price}</td>`
+            trList +=`<td> <button type="button">삭제</button>`
+            trList +=`</tr>`
+            total = total + (value.quantity*value.price)      
+        })
+        trList +=`</tbody>`
+        trList += `<tfoot>`
+        trList += `<tr>`
+        trList += `<td colspan="5">합계 : <span>${total}</span></td>`
+        trList += `</tr>`
+        trList += `</tfoot>`
+        trList += `</table>`
+        // $('table tbody').remove()
+        $('.cartBox table').remove()
+        $('.cartBox').append(trList)
+
+    }else{
+        $('.cartInfo p').text("장바구니가 비어 있습니다.")
+    }
     
+    $('body').on('click','.qty__plus',function(){
+            
+            let quantity=$(this).next().val()
+            let myprice =parseInt($(this).parent().prev().find('.price').text())
+            
+            let total =0;
+            console.log(typeof(myprice))
+            if(quantity){
+                quantity=parseInt(quantity)
+                $(this).next().val(++quantity)
+                total = quantity*myprice
+                
+            }else{
+                quantity=1;
+                $(this).next().val(quantity)
+                total = quantity*myprice
+
+                
+            }
+            $(this).parent().next().text(total)
+            mytotal()
+        })
+        $('body').on('click','.qty__minus',function(){
+            let quantity=parseInt($(this).prev().val())
+            let myprice =parseInt($(this).parent().prev().find('span').text())
+            console.log(myprice)
+            let total=0;
+            if(quantity>1){
+            $(this).prev().val(--quantity)
+            total = quantity*myprice
+            
+        
+            }else{
+                quantity=1;
+                $(this).prev.val(quantity)
+                total = quantity*myprice
+            }
+            $(this).parent().next().text(total)
+            mytotal()
+        })
+        //change = 엔터쳐야 할수 있다
+        //keyup,input = 엔터 안치고 할수 있다. keyup 은 호환성이 더 좋다.
+        //input->checked
+        //select는 옵션을 선택하면 selct에 value값이 전송된다.
+        $('body').on('keyup','.qty__input',function(){
+            let quantity=$(this).val()
+            if(quantity){
+                let total=0;
+                let myprice =parseInt($(this).parent().prev().find('.price').text())
+                quantity = parseInt(quantity)
+                $(this).val(quantity)
+                total = qiantity*myprice
+                $(this).parent().next().text(total);
+                mytotal()
+            }
+           
+        })
+        function mytotal(){
+            let total =0;
+            console.log("asdfjalksdfjl")
+            $('tbody .myTotal').each(function(){
+                total += parseInt($(this).text())
+
+            })
+            $('tfoot span').text(total)
+        }
+    </script>
 </body>
 </html>

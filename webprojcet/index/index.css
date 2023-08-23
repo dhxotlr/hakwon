@@ -6,7 +6,7 @@ a{ text-decoration: none; color: inherit}
 .cf::after{
     content: ''; display: block; clear: both;
 }
-img{max-width:100%}
+img{max-width:100%; vertical-align: middle;}
 .row{max-width: 1200px; margin: 0 auto;}
 button{border: none; cursor: pointer;}
 ::placeholder{font-size: 16px red; }
