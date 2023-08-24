@@ -28,7 +28,14 @@
         .cartBox table tfoot td{padding: 5px 0; text-align: center; font-size: 30px;}
         .cartBox table tbody button {padding:5px 10px; background: #555; color: #fff;}
         .cartBox table tbody input {width: 30px; text-align: center; height: 30px; display: block; margin: 3px auto;}
-    
+        .cartBox .order{text-align: center; margin: 20px 0;}
+        .cartBox .order button{
+            padding:10px 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            background-color: #555;
+            color: #fff;
+        }
        </style>
    <section class="cartBox row">
     <div class="cartInfo">
@@ -41,7 +48,9 @@
     <script src="../js/common.js"></script>
     <script>
        let cartList = JSON.parse(localStorage.getItem("allItem"))
-       if(cartList){
+       
+       function listing(){
+       if(cartList.length){
         $('.cartInfo p').text("")
         let total =0;
         let trList = `<table border="1">
@@ -72,7 +81,7 @@
                       <button type="button" class="qty__minus">-</button>     
                       </td>`
             trList +=`<td class="myTotal">${value.quantity*value.price}</td>`
-            trList +=`<td> <button type="button">삭제</button>`
+            trList +=`<td> <button type="button" class="remove">삭제</button>`
             trList +=`</tr>`
             total = total + (value.quantity*value.price)      
         })
@@ -83,14 +92,18 @@
         trList += `</tr>`
         trList += `</tfoot>`
         trList += `</table>`
-        // $('table tbody').remove()
+        trList += `<div class="order"><a href="buy.html"><button type="button">주문하기</button></a></div>`
         $('.cartBox table').remove()
+        $('.cartBox .order').remove()
         $('.cartBox').append(trList)
 
     }else{
+        $('.cartBox table').remove()
+        $('.cartBox .order').remove()
         $('.cartInfo p').text("장바구니가 비어 있습니다.")
+        }
     }
-    
+    listing();
     $('body').on('click','.qty__plus',function(){
             
             let quantity=$(this).next().val()
@@ -135,6 +148,8 @@
         //keyup,input = 엔터 안치고 할수 있다. keyup 은 호환성이 더 좋다.
         //input->checked
         //select는 옵션을 선택하면 selct에 value값이 전송된다.
+        // cartList=[]  :true
+        // cartList.length : 0(false)
         $('body').on('keyup','.qty__input',function(){
             let quantity=$(this).val()
             if(quantity){
@@ -157,6 +172,25 @@
             })
             $('tfoot span').text(total)
         }
+        $('body').on('click','tbody .remove',function(){
+            // $(this).parent().parent() 같은 의미임
+            let trnum=$(this).parents('tr').index()
+            // console.log(trnum)
+            cartList.splice(trnum, 1)
+            localStorage.setItem("allItem",JSON.stringify(cartList))
+            listing();
+        })
+        $('body').on('click','.order button',function(){
+            let myid = sessionStorage.getItem("userid")
+            if(!myid){
+                alert("로그인 후 구매할수 있습니다.")
+                location.href="./login.html"
+
+            }else{
+                location.href="./buy.html"
+                localStorage.clear()
+            }
+        })
     </script>
 </body>
 </html>

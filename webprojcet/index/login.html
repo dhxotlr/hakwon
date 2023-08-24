@@ -45,5 +45,20 @@
     </section>
     <div class="footer"></div>
     <script src="../js/common.js"></script>
+    <script>
+        $('form').on('submit',function(e){
+            e.preventDefault()
+            let myid =$('#userid').val()
+            let mypw =$('#userpw').val()
+            if(myid&&mypw){
+                sessionStorage.setItem("userid",myid)
+                sessionStorage.setItem("userpw",mypw)
+                location.href='./index.html'
+            }else{
+                alert("두개 다 쓰시오")
+            }
+            
+        })
+    </script>
 </body>
 </html>

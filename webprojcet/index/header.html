@@ -59,3 +59,32 @@
         </div>
     </div>
   </header>
+  <script>
+        let myid = sessionStorage.getItem("userid")
+        let mypw = sessionStorage.getItem("userpw")
+        if(myid&&mypw){
+            $('.member a').eq(0).attr({
+                href : "javascript:;"
+            
+            }).text("로그아웃")
+            $('.member a').eq(1).attr({
+                href : "modify.html"
+            
+            }).text("정보수정")
+        }
+        $('.member a').eq(0).on('click',function(){
+            let text = $(this).text()
+            if(text=='로그아웃'){
+                sessionStorage.clear()
+                localStorage.clear()
+                $(this).attr({
+                    href: "./login.html"
+                }).text('로그인')
+                $(this).next().attr({
+                    href:'./join.html'
+                }).text("회원가입")
+                location.href='./index.html'
+                return false;
+            }
+        })
+  </script>
