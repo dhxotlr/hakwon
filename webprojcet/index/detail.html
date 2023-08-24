@@ -101,7 +101,9 @@
     <div class="footer"></div>
     <script src="../js/common.js"></script>
     <script>
+      
         let temp=location.href.split("?")
+        
         let detail=decodeURI(temp[1]).split("&")
         console.log(detail)
         let option1 = detail[4].toUpperCase().split(",")
@@ -157,7 +159,7 @@
         infobox+=`</form>`
         infobox+=`</div>`
     
-            console.log(infobox)
+       
         $('.detailBox .infobox').remove()
         $('.detailBox').append(infobox)
         let quantity=1;
@@ -211,13 +213,17 @@
             e.preventDefault()
             
             let btn_class = $(document.activeElement).attr('class');
+            console.log('btn_class')
             console.log(btn_class)
+
             let sizeValue = "";
             $('input[name="size"]').each(function(){
                 if($(this).prop('checked')){
                     sizeValue=$(this).val();
+                  
                 }
             })
+ 
             if(!sizeValue){
                 alert("사이즈를 선택해 주세요")
                 return false;
@@ -237,7 +243,7 @@
                 // total : total 필요없음
 
             }
-            console.log(newitem)
+     
             // localStorage.setItem("item", JSON.stringify(newitem)) //로컬스토리지로 넣을때에는 스트링만 들어가야하기 떄문에 변형해준다(JSON.stringify())
            
             let itemList= JSON.parse(localStorage.getItem("allItem"))
