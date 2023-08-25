@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //window의 객체 속성: localStorage, sessionStorage
+        // .getItem("키이름") : 저장한값을 추출함
+        //JSON.parse("문자열로 저장된 배열이나 객체값을 원래 형태로 저장함")
+
+        //.setItem("키이름",저장값) :저장할 값은 문자열로 저장해야함
+        //JSON.stringify(배열명, 객체명, 문자가 아닌값):문자열로 변경함
+
+        localStorage.setItem('a','하하하')
+        localStorage.setItem('b',JSON.stringify(['홍','김','박']))
+        localStorage.setItem('c',JSON.stringify({s1:'java',s2:"html"}))
+
+        let a =localStorage.getItem('a')
+        let b =JSON.parse(localStorage.getItem('b')) 
+        let c =JSON.parse(localStorage.getItem('c')) 
+        document.write(a+"<br>")
+        document.write(b+"<br>")
+        document.write(c+"<br>")
+
+        sessionStorage.setItem('a','하하하')
+        sessionStorage.setItem('b',JSON.stringify(['홍','김','박']))
+        sessionStorage.setItem('c',JSON.stringify({s1:'java',s2:"html"}))
+
+        let aa =sessionStorage.getItem('a')
+        let bb =JSON.parse(sessionStorage.getItem('b')) 
+        let cc =JSON.parse(sessionStorage.getItem('c')) 
+        document.write(aa+"<br>")
+        document.write(bb+"<br>")
+        document.write(cc+"<br>")
+
+        // 키하나만 삭제하기
+        localStorage.removeItem('a')
+        sessionStorage.removeItem('a')
+
+        // 모든 키 삭제하기
+        localStorage.clear()
+        sessionStorage.clear()
+
+    </script>
+</body>
+</html>

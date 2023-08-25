@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span>:</span>
+        <span>:</span>
+        <span>:</span>
+    </div>
+    <script>
+        let now = new Date()
+        document.write(now)
+        document.write(now.getFullYear()+"<br>") //년
+        document.write(now.getMonth()+1+"<br>") //월
+        document.write(now.getDate()+"<br>") //일
+        document.write(now.getDay()+"<br>") //요일
+
+        switch(now.getDay){
+            case 0: document.write("일요일"); break
+            case 1: document.write("월요일"); break
+            case 2: document.write("화요일"); break
+            case 3: document.write("수요일"); break
+            case 4: document.write("목요일"); break
+            case 5: document.write("금요일"); break
+            case 6: document.write("토요일"); break
+            
+        }
+        function autoclock(){
+        let now = new Date()
+        let hour = now.getHours()
+        let min = now .getMinutes()
+        let sec = now .getSeconds()
+        if(hour>=0&&hour<9){
+            hour ="0"+hour
+        }
+        if(min>=0&&min<9){
+            min ="0"+min
+        }
+        if(sec>=0&&sec<9){
+            sec ="0"+sec
+        }
+        let span =document.querySelectorAll('span')
+        span[0].textContent = hour
+        span[1].textContent = min
+        span[2].textContent = sec
+        }
+        autoclock()
+        // setInterval(함수, 시간): 시간 간격으로 반복해서 함수를 호출함
+        let timer = setInterval(autoclock,1000)           // console.log(Math.random()) 함수호출시 ()를 붙이지말것
+        let div = document.querySelector('div')
+        div.addEventListener('mouseover',function(){
+            clearInterval(timer)
+        })
+        div.addEventListener('mouseout',function(){
+            timer = setInterval(autoclock,1000)
+        })
+        // setTimeout(함수,시간): 시간후에 딱 한번 함수를 호출함
+        setTimeout(function(){
+            alert("확인되었습니다.")
+        },2000)
+
+    </script>
+</body>
+</html>
