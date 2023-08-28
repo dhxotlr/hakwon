@@ -59,9 +59,11 @@
         </div>
     </div>
   </header>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>
         let myid = sessionStorage.getItem("userid")
         let mypw = sessionStorage.getItem("userpw")
+        let type = sessionStorage.getItem("type")
         if(myid&&mypw){
             $('.member a').eq(0).attr({
                 href : "javascript:;"
@@ -75,8 +77,15 @@
         $('.member a').eq(0).on('click',function(){
             let text = $(this).text()
             if(text=='로그아웃'){
+                if(type=='myacc'){
                 sessionStorage.clear()
                 localStorage.clear()
+                }else if(type='kakao'){
+                sessionStorage.clear()
+                localStorage.clear()
+                kakaoLogout()
+                }
+               
                 $(this).attr({
                     href: "./login.html"
                 }).text('로그인')
@@ -87,4 +96,19 @@
                 return false;
             }
         })
+    function kakaoLogout(){
+        Kakao.init('8153d2eef6dc5d92542933c8a22ae781')
+        if(Kakao.Auth.getAccessToken()){
+            Kakao.API.request({
+                url:'/v1/user/unlink',
+                success: function(response){
+                    console.log(response)
+                },
+                fail:function(error){
+                    console.log(error)
+                }
+            })
+            Kakao.Auth.setAccessToken(undefined)
+        }
+    }
   </script>

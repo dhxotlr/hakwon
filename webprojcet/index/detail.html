@@ -212,6 +212,10 @@
         $('body').on('submit','.prdInfo',function(e){
             e.preventDefault()
             
+            let answer = confirm("정말로 장바구니에 담겠습니까?")
+            if(answer){
+
+            
             let btn_class = $(document.activeElement).attr('class');
             console.log('btn_class')
             console.log(btn_class)
@@ -260,7 +264,7 @@
             }else{
                 location.href = "./buy.html"
             }
-
+        }
         })
     </script>
     

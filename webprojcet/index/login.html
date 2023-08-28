@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./rwd.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 </head>
 <body>
     <div class="header"></div>
@@ -35,16 +36,20 @@
 
             </form>
             <ul class="sns_login">
-                <li><a href="#none">카카오톡 로그인</a> </li>
-                <li><a href="#none">네이버 로그인</a></li>
-                <li><a href="#none">페이스북 로그인</a></li>
-                <li><a href="#none">이메일주소 로그인</a></li>
+                <li><a id="btn-kakao-login" href="kakao/login">카카오톡 로그인</a> </li>
+                <!-- <li><a href="#none">네이버 로그인</a></li>
+                <li><a href="#none">구글 로그인</a></li> -->
+                
             </ul>
         </div>
 
     </section>
     <div class="footer"></div>
+    
+    
+   
     <script src="../js/common.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
         $('form').on('submit',function(e){
             e.preventDefault()
@@ -53,12 +58,40 @@
             if(myid&&mypw){
                 sessionStorage.setItem("userid",myid)
                 sessionStorage.setItem("userpw",mypw)
+                sessionStorage.setItem("type","myacc")
                 location.href='./index.html'
             }else{
                 alert("두개 다 쓰시오")
             }
             
         })
+        $('#btn-kakao-login').on('click',function(e){
+            e.preventDefault()
+            Kakao.init('8153d2eef6dc5d92542933c8a22ae781')
+            Kakao.Auth.login({
+                success:function(auth){
+                    Kakao.API.request({
+                        url:'/v2/user/me',
+                        success:function(response){
+                            var account = response.kakao_account
+                            console.log(account)
+                            sessionStorage.setItem("userid",account.email)
+                            sessionStorage.setItem("userpw",account.nickname)
+                            sessionStorage.setItem("type","kakao")
+                            location.href="./index.html"
+                        },fail : function(error){
+                   console.log(error)
+                    }
+                        
+                    })
+                },
+                fail:function(error){
+                   console.log(error)
+                }
+                
+            })
+        })
     </script>
+    
 </body>
 </html>
